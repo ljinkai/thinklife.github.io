@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>采集终端架构分享 | Reboot,2015</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基于OSGI的终端采集架构在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 
+公司及产品简介云智慧（北京）科技有限公司成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="采集终端架构分享">
+<meta property="og:url" content="http://yoursite.com/2015/03/02/采集终端架构分享/index.html">
+<meta property="og:site_name" content="Reboot,2015">
+<meta property="og:description" content="基于OSGI的终端采集架构在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 
+公司及产品简介云智慧（北京）科技有限公司成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）">
+<meta property="og:image" content="http://www.yunzhihui.com/img/logo.png">
+<meta property="og:image" content="http://images.51cto.com/files/uploadimg/20100324/085509587.jpg">
+<meta property="og:image" content="http://assets.osgi.com.cn/article/7289216/lifecycle2.png">
+<meta property="og:updated_time" content="2015-09-03T03:52:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="采集终端架构分享">
+<meta name="twitter:description" content="基于OSGI的终端采集架构在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 
+公司及产品简介云智慧（北京）科技有限公司成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）">
+  
+    <link rel="alternative" href="/atom.xml" title="Reboot,2015" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://static.36kr.com/wp-content/uploads/2012/09/Screen-Shot-2012-09-03-at-    2.09.44-PM.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Nolan Zhang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自其异者视之，肝胆楚越也；自其同者视之，万物皆一也.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/thinklife" title="github">github</a>
+					        
+								<a class="quora" target="_blank" href="http://www.quora.com/rushking2014" title="quora">quora</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/group/people/16409943/" title="douban">douban</a>
+					        
+								<a class="mail" target="_blank" href="/55269778@qq.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/dothinklife" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/A2/" style="font-size: 20px;">A2</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/env/" style="font-size: 10px;">env</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 16.67px;">mac</a> <a href="/tags/osgi/" style="font-size: 16.67px;">osgi</a> <a href="/tags/plan/" style="font-size: 13.33px;">plan</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/产品设计/" style="font-size: 10px;">产品设计</a> <a href="/tags/原创/" style="font-size: 16.67px;">原创</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/我/" style="font-size: 10px;">我</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/收集/" style="font-size: 10px;">收集</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/时间管理/" style="font-size: 10px;">时间管理</a> <a href="/tags/每日一贴/" style="font-size: 13.33px;">每日一贴</a> <a href="/tags/知识储备/" style="font-size: 10px;">知识储备</a> <a href="/tags/示例/" style="font-size: 10px;">示例</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/课程/" style="font-size: 10px;">课程</a> <a href="/tags/转摘/" style="font-size: 10px;">转摘</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.lishen.me">李参教师</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://program-think.blogspot.com/">编程随想</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.typing-lessons.org">keyboard</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Nolan Zhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://static.36kr.com/wp-content/uploads/2012/09/Screen-Shot-2012-09-03-at-    2.09.44-PM.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Nolan Zhang</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自其异者视之，肝胆楚越也；自其同者视之，万物皆一也.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/thinklife" title="github">github</a>
+			        
+						<a class="quora" target="_blank" href="http://www.quora.com/rushking2014" title="quora">quora</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/group/people/16409943/" title="douban">douban</a>
+			        
+						<a class="mail" target="_blank" href="/55269778@qq.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/dothinklife" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-采集终端架构分享" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/02/采集终端架构分享/" class="article-date">
+  	<time datetime="2015-03-02T13:52:10.000Z" itemprop="datePublished">2015-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      采集终端架构分享
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于OSGI的终端采集架构">基于OSGI的终端采集架构</h1><p><img src="http://www.yunzhihui.com/img/logo.png" alt="icon"><br>在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 </p>
+<h3 id="公司及产品简介">公司及产品简介</h3><p><a href="http://www.yunzhihui.com" target="_blank" rel="external">云智慧（北京）科技有限公司</a>成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）解决方案。</p>
+<p>现有两套独居规模的产品线:<br><a id="more"></a></p>
+<ol>
+<li><strong>监控宝</strong><br>端到端的立体监控体系，保障IT基础设施及交付能力最佳  </li>
+<li><strong>透视宝</strong><br>面向业务的基于大数据分析的端到端应用性能管理解决方案  </li>
+</ol>
+<p>通俗来讲,整个产品线亦可理解为：</p>
+<pre><code>从服务监测,数据分析，预前告警及提供事前解决方案的一站式服务
+</code></pre><p>那么今天所要分享的便是其中的<code>服务监测</code>这块内容，亦可理解为<code>数据采集终端</code>.其采用的是基于OSGI技术的架构设计，在接下来的介绍内容中，会分两块进行描述:</p>
+<ol>
+<li><strong><em>OSGI初识</em></strong>  </li>
+<li><strong><em>OSGI在实际业务场景中的应用</em></strong>  </li>
+</ol>
+<hr>
+<h4 id="1)_OSGI初识">1) OSGI初识</h4><h5 id="什么是OSGI">什么是OSGI</h5><p><a href="http://zh.wikipedia.org/wiki/OSGi" target="_blank" rel="external">OSGI</a>(Open Service Gateway Initiative)是OSGiAlliance组织制定的一个基于Java语言的服务（业务）规范，强调面向模块及服务的方式开发组件，通过组件的高可利用快速构建应用.      </p>
+<h5 id="特性">特性</h5><ul>
+<li>组件化设计</li>
+<li>面向服务</li>
+<li>严格的包引用规范机制</li>
+<li>统一生命周期管理</li>
+</ul>
+<h5 id="核心内容">核心内容</h5><ol>
+<li><strong><em>OSGI容器</em></strong><br><img src="http://images.51cto.com/files/uploadimg/20100324/085509587.jpg" alt="icon"><br>上图展示了整个osgi的整个服务框架.  注：图片来源<a href="51cto.com">^1</a>  </li>
+</ol>
+<p>目前基于OSGI规范的实现如下:</p>
+<pre><code>-<span class="ruby"> equinox[^<span class="number">4</span>]
+</span>-<span class="ruby"> felix[^<span class="number">2</span>]
+</span>-<span class="ruby"> knopflerfish[^<span class="number">3</span>]</span>
+</code></pre><ol>
+<li><strong><em>生命周期管理</em></strong><br><img src="http://assets.osgi.com.cn/article/7289216/lifecycle2.png" alt="icon"><br>上图展示了整个bundle插件的从安装，运行，停止，卸载的整个状态转移过程.   注：图片来源<a href="http://assets.osgi.com.cn" target="_blank" rel="external">^5</a></li>
+</ol>
+<ol>
+<li><p><strong><em>Bundle</em></strong>，即OSGI容器所要装载的实例  </p>
+<p> 一个完整的bundle主要包括以下几部分:   </p>
+<ul>
+<li><p>MANIFEST.MF(<strong><em><code>示例</code></em></strong>)      </p>
+<pre><code>Manifest-<span class="string">Version:</span> <span class="number">1.0</span>
+Bundle-<span class="string">ManifestVersion:</span> <span class="number">2</span>
+Bundle-<span class="string">Name:</span> SampleMain
+Bundle-<span class="string">SymbolicName:</span> SampleMain
+Bundle-<span class="string">Version:</span> <span class="number">1.0</span><span class="number">.0</span>.qualifier
+Bundle-<span class="string">Activator:</span> com.sample.main.Activator
+Import-<span class="string">Package:</span>org.apache.felix.service.command;version=<span class="string">"0.12.1"</span>,
+org.osgi.framework;version=<span class="string">"1.3.0"</span>
+Bundle-<span class="string">RequiredExecutionEnvironment:</span> JavaSE-<span class="number">1.7</span>
+Export-<span class="string">Package:</span> com.sample.main.api
+</code></pre><p>  关键配置说明：</p>
+<ul>
+<li><code>Bundle-Activator</code>：用于配置自己的事件定义，用于在bundle的启动或停止方法中处理自己的业务</li>
+<li><code>Import-Package</code>：用于配置需要导入依赖的类引用，当且仅当被导入的包也export对应的包才能导入</li>
+<li><code>Export-Package</code>：用于配置需要导出的包，即可被其他bundle可见且可导入的包路径</li>
+</ul>
+</li>
+<li><p>Activator.java(<strong><em><code>示例</code></em></strong>) </p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activator</span>  <span class="keyword">implements</span> <span class="title">BundleActivator</span></span>{
+
+    <span class="comment">//可以从bundlecontext中获取其它bundle注册的服务</span>
+    <span class="keyword">private</span> <span class="keyword">static</span> BundleContext context;
+
+    <span class="function"><span class="keyword">static</span> BundleContext <span class="title">getContext</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> context;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>{
+        Activator.context = bundleContext;
+
+        <span class="comment">//TODO register the service</span>
+    }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<pre><code>        public void <span class="operator"><span class="keyword">stop</span>(BundleContext bundleContext) throws <span class="keyword">Exception</span> {
+            Activator.<span class="keyword">context</span> = <span class="literal">null</span>;</span>
+
+            //TODO unregister the service
+        }
+
+    }
+系统类说明：
+- `BundleActivator`：用于捕捉bundle的<span class="operator"><span class="keyword">start</span>和<span class="keyword">stop</span>事件。 
+- <span class="string">`BundleContext`</span>：bundle在框架中的上下文，可以通过它与框架交互。</span>
+</code></pre><h5 id="开源应用">开源应用</h5><ul>
+<li><a href="https://eclipse.org/" target="_blank" rel="external">Eclipse</a></li>
+<li><a href="http://www-01.ibm.com/software/cn/websphere/" target="_blank" rel="external">IBM websphere</a></li>
+<li>Apache <ul>
+<li><a href="http://camel.apache.org/" target="_blank" rel="external">Caml</a>: Apache Camel是Apache基金会下的一个开源项目,它是一个基于规则路由和中介引擎，提供企业集成模式的Java对象的实现，通过应用程序接口（或称为陈述式的Java领域特定语言（DSL））来配置路由和中介的规则。</li>
+<li><a href="http://karaf.apache.org" target="_blank" rel="external">Karaf</a>: 是一个基于osgi运行环境的轻量级容器</li>
+<li><a href="http://servicemix.apache.org" target="_blank" rel="external">ServiceMix</a>:开源集成容器，它结合了Apache ActiveMQ、Camel、CXF和Karaf的特性和功能到一个强大的运行平台，你可以用它构建属于自己的集成解决方案.</li>
+<li><a href="http://ace.apache.org/" target="_blank" rel="external">Ace</a>:是一个软件发布框架，用于管理和发布模块化软件的组件、配置数据、其他基于OSGi的产品以及相关目标系统</li>
+</ul>
+</li>
+</ul>
+<h4 id="2)_OSGI在实际业务场景中的应用">2) OSGI在实际业务场景中的应用</h4><p>就采集终端的业务特性，在公司在的整个业务体系占据着重要地位，可以说是数据奠基者，后端分析之根本，所以在考虑它的设计要求时，主要关注以下几个方面:  </p>
+<ol>
+<li>稳定性 确保使用新的采集插件或补丁时不会影响系统的运行</li>
+<li>扩展性 采集服务是在不断完善与扩张的，因此需要灵活扩展插件</li>
+<li>可用性 要保证7*24的正常运行。在出现故障，可支持自动重启或主从机切换</li>
+<li>安全性 要保障客户机的数据安全   </li>
+</ol>
+<p>OSGI的特性主要体现在对插件的扩展性方面,设计思路大致如下:</p>
+<ol>
+<li>定义一个接口插件包，用于抽象定义发现服务或采集数据的接口，以及相关的实体，要保证此接口不轻易改动</li>
+<li>定义一个或多个针对上述接口的扩展实现，比如主机，mysql,tomcat等服务，只需要在此插件中实现某一种服务类型的服务发现或采集业务实现，即完成了采集终端一种服务的扩展开发。</li>
+<li><p>定义一个调用接口服务的插件包，在其内部只需通过framework提供的bundleContext上下文对象，直接利用接口定义即可获取到所有实现此接口的所有扩展实例，从而避免了与扩展实现之间的直接依赖.</p>
+<p> 在此开发过程中，主要利用了osgi中的<code>包隔离机制</code>，<code>动态加载</code>以及通过<code>面向服务</code>调用这三方面来实现服务的动态扩展。</p>
+</li>
+</ol>
+<p>具体代码示例如下：</p>
+<ol>
+<li><p>定义接口插件，如discoverapi.jar</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IDiscover</span> {
+
+    <span class="comment">/**
+     * discover the service
+     * @return ServiceInfo the service's infomation
+     */</span>
+    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span>(<span class="params"></span>)</span>;
+
+}
+</code></pre></li>
+<li><p>定义实现插件,如: 主机发现 hostdiscover.jar</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HostDiscover</span> <span class="keyword">implements</span> <span class="title">IDiscover</span> </span>{
+
+    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span><span class="params">()</span></span>{
+        <span class="comment">//TODO do some stuff</span>
+        <span class="keyword">return</span> xxxx;
+    }
+
+}
+</code></pre></li>
+<li><p>定义实现插件,如: mysql服务发现 mysqldiscover.jar</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MysqlDiscover</span> <span class="keyword">implements</span> <span class="title">IDiscover</span> </span>{
+
+    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span><span class="params">()</span></span>{
+        <span class="comment">//TODO do some stuff</span>
+        <span class="keyword">return</span> xxxx;
+    }
+
+}
+</code></pre></li>
+<li>定义调用插件,如：servicemain.jar</li>
+</ol>
+<pre><code><span class="keyword">public</span> class ServiceComponent {
+
+    <span class="keyword">public</span> <span class="keyword">void</span> doDiscover() <span class="keyword">throws</span> InvalidSyntaxException{
+        List&lt;IDiscover&gt; serviceList = getBundles(Activator.getContext(), IDiscover.class);
+
+        <span class="keyword">for</span>(IDiscover ids : serviceList){
+            System.out.<span class="built_in">println</span>(<span class="string">"find service:"</span>);
+            System.out.<span class="built_in">println</span>(<span class="string">"    the plugin [id: "</span>+ids.id()+<span class="string">"+, name:"</span>+ids.name()+<span class="string">" ], discover the detail:"</span>+ids.doDiscover()+<span class="string">"\n"</span>);
+        }
+    }
+
+
+    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; List&lt;T&gt; getBundles(BundleContext bundleContext,Class&lt;T&gt; clazz) <span class="keyword">throws</span> InvalidSyntaxException {
+        Collection&lt;ServiceReference&lt;T&gt;&gt; srfList = <span class="keyword">null</span>;
+
+        <span class="keyword">String</span> <span class="built_in">filter</span> = <span class="string">"(group="</span> + clazz.getName() + <span class="string">")"</span>;
+        <span class="keyword">try</span> {
+             srfList = bundleContext.getServiceReferences(clazz, <span class="built_in">filter</span>);
+        } <span class="keyword">catch</span> (InvalidSyntaxException e) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> InvalidSyntaxException(<span class="string">"the filter syntax invalid error."</span>,<span class="built_in">filter</span>,e);
+        }
+
+        List&lt;T&gt; bundleList = (List&lt;T&gt;)<span class="keyword">new</span> ArrayList(srfList.<span class="built_in">size</span>());
+        <span class="keyword">for</span> (ServiceReference&lt;T&gt; srf : srfList) {
+            bundleList.<span class="built_in">add</span>(bundleContext.getService(srf));
+        }
+        <span class="keyword">return</span> bundleList;
+    }
+}
+</code></pre><hr>
+<p>实例下载:<code>参考附件</code>  </p>
+<ol>
+<li><a href="http://xxx/" target="_blank" rel="external">SampleMain</a>  </li>
+<li><a href="http://xxx" target="_blank" rel="external">SamplePluginApi</a>  </li>
+<li><a href="http://xxx" target="_blank" rel="external">SamplePluginHost</a>  </li>
+<li><a href="http://xxx" target="_blank" rel="external">SamplePluginMysql</a>  </li>
+<li><a href="http://" target="_blank" rel="external">felix framework</a></li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          读书笔记&gt;&gt;谷歌和亚马逊如何做产品
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/02/WeeklyPlanNote/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WeeklyPlanNote</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="采集终端架构分享" data-title="采集终端架构分享" data-url="http://yoursite.com/2015/03/02/采集终端架构分享/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Nolan Zhang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
