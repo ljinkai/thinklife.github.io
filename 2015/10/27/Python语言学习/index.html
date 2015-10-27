@@ -3,34 +3,58 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OSGI插件开发示例 | Reboot,2015</title>
+  <title>Python语言学习 | Reboot,2015</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境搭建
-eclipse  开发工具
-Felix Framework OSGI插件运行环境
+  <meta name="description" content="简介及配置环境篇
+特点
+运行环境配置
 
+基本篇
+基础语法 
+python对象
+数字
+序列
+映像和集合类型
+条件和循环
+执行环境
 
-下载felix">
+进阶篇待补充">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSGI插件开发示例">
-<meta property="og:url" content="http://blog.ssogeek.com/2015/03/03/OSGI插件开发示例/index.html">
+<meta property="og:title" content="Python语言学习">
+<meta property="og:url" content="http://blog.ssogeek.com/2015/10/27/Python语言学习/index.html">
 <meta property="og:site_name" content="Reboot,2015">
-<meta property="og:description" content="环境搭建
-eclipse  开发工具
-Felix Framework OSGI插件运行环境
+<meta property="og:description" content="简介及配置环境篇
+特点
+运行环境配置
 
+基本篇
+基础语法 
+python对象
+数字
+序列
+映像和集合类型
+条件和循环
+执行环境
 
-下载felix">
-<meta property="og:image" content="http://7wy48o.com1.z0.glb.clouddn.com/plugin-create.png-blogpic">
-<meta property="og:updated_time" content="2015-09-18T15:10:43.000Z">
+进阶篇待补充">
+<meta property="og:image" content="http://7wy48o.com1.z0.glb.clouddn.com/Python学习.png">
+<meta property="og:updated_time" content="2015-10-27T03:39:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OSGI插件开发示例">
-<meta name="twitter:description" content="环境搭建
-eclipse  开发工具
-Felix Framework OSGI插件运行环境
+<meta name="twitter:title" content="Python语言学习">
+<meta name="twitter:description" content="简介及配置环境篇
+特点
+运行环境配置
 
+基本篇
+基础语法 
+python对象
+数字
+序列
+映像和集合类型
+条件和循环
+执行环境
 
-下载felix">
+进阶篇待补充">
   
     <link rel="alternative" href="/atom.xml" title="Reboot,2015" type="application/atom+xml">
   
@@ -209,11 +233,11 @@ Felix Framework OSGI插件运行环境
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-OSGI插件开发示例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python语言学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/03/03/OSGI插件开发示例/" class="article-date">
-  	<time datetime="2015-03-03T03:42:10.000Z" itemprop="datePublished">2015-03-03</time>
+      <a href="/2015/10/27/Python语言学习/" class="article-date">
+  	<time datetime="2015-10-26T23:35:07.000Z" itemprop="datePublished">2015-10-27</time>
 </a>
     </div>
   
@@ -226,7 +250,7 @@ Felix Framework OSGI插件运行环境
         
   
     <h1 class="article-title" itemprop="name">
-      OSGI插件开发示例
+      Python语言学习
     </h1>
   
 
@@ -234,15 +258,7 @@ Felix Framework OSGI插件运行环境
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/osgi/">osgi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创/">原创</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/示例/">示例</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/原创/">原创</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -250,44 +266,21 @@ Felix Framework OSGI插件运行环境
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="环境搭建">环境搭建</h3><ul>
-<li>eclipse  开发工具</li>
-<li>Felix Framework <code>OSGI插件运行环境</code></li>
+        <p><img src="http://7wy48o.com1.z0.glb.clouddn.com/Python学习.png" alt="知识结构图"></p>
+<h1 id="简介及配置环境篇">简介及配置环境篇</h1><ul>
+<li>特点</li>
+<li>运行环境配置</li>
 </ul>
-<ul>
-<li><p>下载felix    </p>
-<a id="more"></a>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="symbol">http:</span>/<span class="regexp">/mirror.olnevhost.net/pub</span><span class="regexp">/apache/</span><span class="regexp">/felix/org</span>.apache.felix.main.distribution-<span class="number">4.6</span>.<span class="number">0</span>.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">tar</span> <span class="tag">-zxvf</span> <span class="tag">org</span><span class="class">.apache</span><span class="class">.felix</span><span class="class">.main</span><span class="class">.distribution-4</span><span class="class">.6</span><span class="class">.0</span><span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行felix</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd felix-framework-<span class="number">4.6</span><span class="number">.0</span></span><br><span class="line">java -jar bin/felix.jar</span><br></pre></td></tr></table></figure>
-</li>
+<h1 id="基本篇">基本篇</h1><ul>
+<li><a href="#基础语法">基础语法</a> </li>
+<li>python对象</li>
+<li>数字</li>
+<li>序列</li>
+<li>映像和集合类型</li>
+<li>条件和循环</li>
+<li>执行环境</li>
 </ul>
-<p><strong>显示: “Welcome to Apache Felix Gogo” 表明安装成功.</strong><br>至此,环境搭建完毕.<br><!-- more --></p>
-<h3 id="开发步骤">开发步骤</h3><h4 id="1-_创建plugin_project">1. 创建plugin project</h4><p><img src="http://7wy48o.com1.z0.glb.clouddn.com/plugin-create.png-blogpic" alt="image"><br>创建成功后，会生成如下目录：  </p>
-<pre><code>SampleOne                    <span class="comment">//工程名</span>
-    ├── META-INF    
-    │   └── MANIFEST<span class="class">.MF</span>    <span class="comment">//plugin配置文件，负现包目录的导入与导出，以及第三方jar的加载</span>
-    ├── bin                    <span class="comment">//编译目录</span>
-    │   └── sampleone
-    │       └── Activator<span class="class">.class</span>
-    ├── build<span class="class">.properties</span>
-    └── src                    <span class="comment">//源代码目录</span>
-             └── sampleone
-            └── Activator.java
-</code></pre><h4 id="2-_编辑源码及配置文件：">2. 编辑源码及配置文件：</h4><ul>
-<li>编辑<code>Activator.java</code><br> 此文件为插件装载启动或停止时，调用对应的start及stop方法。可以start方法中执行一些服务注册或初始化工作，以及在stop方法中。    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activator</span> <span class="keyword">implements</span> <span class="title">BundleActivator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BundleContext context;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> BundleContext <span class="title">getContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> context;</span><br><span class="line">	&#125;			</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		Activator.context = bundleContext;</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">"current time:"</span>+<span class="keyword">new</span> Date());			Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		Activator.context = <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>编辑配置文件  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: <span class="number">1.0</span></span><br><span class="line">Bundle-ManifestVersion: <span class="number">2</span></span><br><span class="line">Bundle-Name: SampleOne</span><br><span class="line">Bundle-SymbolicName: SampleOne</span><br><span class="line">Bundle-Version: <span class="number">1.0</span><span class="number">.0</span>.qualifier</span><br><span class="line">Bundle-Activator: sampleone.Activator	<span class="comment">//注册初始化加载类，需要扩展实现BundleActivator.非必须配置</span></span><br><span class="line">Import-Package: org.osgi.framework;version=<span class="string">"1.3.0"</span></span><br><span class="line">Bundle-RequiredExecutionEnvironment: JavaSE-<span class="number">1.7</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#### <span class="number">3.</span> 打包</span></span><br><span class="line">- 选择打包的工程，右击<span class="keyword">export</span></span><br><span class="line">- 在弹出的窗口，选中要打包的工程，填写jar包所要生成的目录</span><br><span class="line">- 点击finish,打包完成.  </span><br><span class="line">注：`打包过程，会在选择目录中生成一个plugins文件夹，而生成的jar就在此文件夹中.`    </span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 示例运行</span></span><br><span class="line">- 将上述生成的jar复制到felix-framework-<span class="number">4.6</span><span class="number">.0</span>/bundle文件夹中  </span><br><span class="line">- 运行osgi容器</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>java -jar bin/felix.jar<br>```</p>
-
+<h1 id="进阶篇">进阶篇</h1><h2 id="待补充">待补充</h2>
       
     </div>
     
@@ -296,18 +289,18 @@ Felix Framework OSGI插件运行环境
     
 <nav id="article-nav">
   
-    <a href="/2015/03/03/基于Gradle构建osgi插件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/27/如何调整Launchpad图标排列/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          基于Gradle构建osgi插件
+          如何调整Launchpad图标排列
         
       </div>
     </a>
   
   
-    <a href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">读书笔记&gt;&gt;谷歌和亚马逊如何做产品</div>
+    <a href="/2015/10/25/榫卯知識/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">榫卯知識</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -336,7 +329,7 @@ Felix Framework OSGI插件运行环境
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="OSGI插件开发示例" data-title="OSGI插件开发示例" data-url="http://blog.ssogeek.com/2015/03/03/OSGI插件开发示例/"></div>
+	<div class="ds-thread" data-thread-key="Python语言学习" data-title="Python语言学习" data-url="http://blog.ssogeek.com/2015/10/27/Python语言学习/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

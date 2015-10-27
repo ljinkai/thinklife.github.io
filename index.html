@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/A2/" style="font-size: 20px;">A2</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/env/" style="font-size: 10px;">env</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 16.67px;">mac</a> <a href="/tags/osgi/" style="font-size: 16.67px;">osgi</a> <a href="/tags/plan/" style="font-size: 13.33px;">plan</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/产品设计/" style="font-size: 10px;">产品设计</a> <a href="/tags/原创/" style="font-size: 20px;">原创</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/思路/" style="font-size: 10px;">思路</a> <a href="/tags/我/" style="font-size: 10px;">我</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/收集/" style="font-size: 10px;">收集</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/时间管理/" style="font-size: 10px;">时间管理</a> <a href="/tags/每日一贴/" style="font-size: 13.33px;">每日一贴</a> <a href="/tags/知识储备/" style="font-size: 10px;">知识储备</a> <a href="/tags/示例/" style="font-size: 10px;">示例</a> <a href="/tags/自我提升/" style="font-size: 10px;">自我提升</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/课程/" style="font-size: 10px;">课程</a> <a href="/tags/转摘/" style="font-size: 10px;">转摘</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+						<a href="/tags/A2/" style="font-size: 20px;">A2</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/env/" style="font-size: 10px;">env</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mac/" style="font-size: 20px;">mac</a> <a href="/tags/osgi/" style="font-size: 16.67px;">osgi</a> <a href="/tags/plan/" style="font-size: 13.33px;">plan</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/书单/" style="font-size: 10px;">书单</a> <a href="/tags/产品设计/" style="font-size: 10px;">产品设计</a> <a href="/tags/原创/" style="font-size: 20px;">原创</a> <a href="/tags/开始/" style="font-size: 10px;">开始</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/思路/" style="font-size: 10px;">思路</a> <a href="/tags/我/" style="font-size: 10px;">我</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/收集/" style="font-size: 10px;">收集</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/时间管理/" style="font-size: 10px;">时间管理</a> <a href="/tags/每日一贴/" style="font-size: 13.33px;">每日一贴</a> <a href="/tags/知识储备/" style="font-size: 10px;">知识储备</a> <a href="/tags/示例/" style="font-size: 10px;">示例</a> <a href="/tags/自我提升/" style="font-size: 10px;">自我提升</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/课程/" style="font-size: 10px;">课程</a> <a href="/tags/转摘/" style="font-size: 10px;">转摘</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
 					</div>
 				</section>
 				
@@ -193,6 +193,128 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-如何调整Launchpad图标排列" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/如何调整Launchpad图标排列/" class="article-date">
+  	<time datetime="2015-10-27T05:57:10.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/27/如何调整Launchpad图标排列/">如何调整Launchpad图标排列</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、打开命令窗口">一、打开命令窗口</h3><h3 id="二、设置行图标个数">二、设置行图标个数</h3><pre><code>&gt; defaults write com<span class="class">.apple</span><span class="class">.dock</span> springboard-rows -int <span class="number">6</span>
+</code></pre><h3 id="三、设置列图标个数">三、设置列图标个数</h3><pre><code>&gt; defaults write com<span class="class">.apple</span><span class="class">.dock</span> springboard-<span class="attribute">columns</span> -int <span class="number">7</span>
+</code></pre><h3 id="四、重置Launchpad并重启Dock">四、重置Launchpad并重启Dock</h3><pre><code>&gt; <span class="tag">defaults</span> <span class="tag">write</span> <span class="tag">com</span><span class="class">.apple</span><span class="class">.dock</span> <span class="tag">ResetLaunchPad</span> <span class="tag">-bool</span> <span class="tag">TRUE</span>;
+&gt; <span class="tag">killall</span> <span class="tag">Dock</span>
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Python语言学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/Python语言学习/" class="article-date">
+  	<time datetime="2015-10-26T23:35:07.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/27/Python语言学习/">Python语言学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7wy48o.com1.z0.glb.clouddn.com/Python学习.png" alt="知识结构图"></p>
+<h1 id="简介及配置环境篇">简介及配置环境篇</h1><ul>
+<li>特点</li>
+<li>运行环境配置</li>
+</ul>
+<h1 id="基本篇">基本篇</h1><ul>
+<li><a href="#基础语法">基础语法</a> </li>
+<li>python对象</li>
+<li>数字</li>
+<li>序列</li>
+<li>映像和集合类型</li>
+<li>条件和循环</li>
+<li>执行环境</li>
+</ul>
+<h1 id="进阶篇">进阶篇</h1><h2 id="待补充">待补充</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-榫卯知識" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -749,237 +871,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时间管理/">时间管理</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Redis学习手册" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/24/Redis学习手册/" class="article-date">
-  	<time datetime="2015-08-24T10:39:44.000Z" itemprop="datePublished">2015-08-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/24/Redis学习手册/">Redis学习手册</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="[转摘]_Redis学习手册">[转摘] Redis学习手册</h1><h3 id="Redis学习手册(开篇)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/13/2348935.html" target="_blank" rel="external">Redis学习手册(开篇)</a></h3><ul>
-<li>简介</li>
-<li>Redis的优势</li>
-<li>目前版本中Redis存在的主要问题</li>
-<li>和关系型数据库的比较</li>
-<li>如何持久化内存数据</li>
-</ul>
-<h3 id="Redis学习手册(String数据类型)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/13/2349815.html" target="_blank" rel="external">Redis学习手册(String数据类型)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-</ul>
-<h3 id="Redis学习手册(List数据类型)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/14/2351859.html" target="_blank" rel="external">Redis学习手册(List数据类型)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-<li>链表结构的小技巧</li>
-</ul>
-<h3 id="Redis学习手册(Set数据类型)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/15/2352512.html" target="_blank" rel="external">Redis学习手册(Set数据类型)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-<li>应用范围</li>
-</ul>
-<h3 id="Redis学习手册(Hashes数据类型)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/15/2352932.html" target="_blank" rel="external">Redis学习手册(Hashes数据类型)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-</ul>
-<h3 id="Redis学习手册(Sorted-Sets数据类型)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html" target="_blank" rel="external">Redis学习手册(Sorted-Sets数据类型)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-<li>应用范围</li>
-</ul>
-<h3 id="Redis学习手册(Key操作命令)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/18/2356951.html" target="_blank" rel="external">Redis学习手册(Key操作命令)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-</ul>
-<h3 id="Redis学习手册(事务)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/18/2357783.html" target="_blank" rel="external">Redis学习手册(事务)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-<li>命令示例</li>
-<li>WATCH命令和基于CAS的乐观锁</li>
-</ul>
-<h3 id="Redis学习手册(主从复制)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/23/2364717.html" target="_blank" rel="external">Redis学习手册(主从复制)</a></h3><ul>
-<li>Redis的Replication</li>
-<li>Replication的工作原理</li>
-<li>如何配置Replication</li>
-<li>应用示例</li>
-</ul>
-<h3 id="Redis学习手册(持久化)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/23/2365017.html" target="_blank" rel="external">Redis学习手册(持久化)</a></h3><ul>
-<li>Redis提供了哪些持久化机制</li>
-<li>RDB机制的优势和劣势</li>
-<li>AOF机制的优势和劣势</li>
-<li>其它</li>
-</ul>
-<h3 id="Redis学习手册(虚拟内存)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/24/2366803.html" target="_blank" rel="external">Redis学习手册(虚拟内存)</a></h3><ul>
-<li>简介</li>
-<li>应用场景</li>
-<li>配置</li>
-</ul>
-<h3 id="Redis学习手册(管线)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/25/2367816.html" target="_blank" rel="external">Redis学习手册(管线)</a></h3><ul>
-<li>请求应答协议和RTT</li>
-<li>管线(pipelining)</li>
-<li>Benchmark</li>
-</ul>
-<h3 id="Redis学习手册(服务器管理)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/27/2369480.html" target="_blank" rel="external">Redis学习手册(服务器管理)</a></h3><ul>
-<li>概述</li>
-<li>相关命令列表</li>
-</ul>
-<h3 id="Redis学习手册(内存优化)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/27/2370521.html" target="_blank" rel="external">Redis学习手册(内存优化)</a></h3><ul>
-<li>特殊编码</li>
-<li>BIT和Byte级别的操作</li>
-<li>尽可能使用Hash</li>
-</ul>
-<h3 id="Redis学习手册(实例代码)"><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/03/15/2398249.html" target="_blank" rel="external">Redis学习手册(实例代码)</a></h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R/">R</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-每日一贴-2015-08-21" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/21/每日一贴-2015-08-21/" class="article-date">
-  	<time datetime="2015-08-21T08:50:42.000Z" itemprop="datePublished">2015-08-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/21/每日一贴-2015-08-21/">每日一贴-2015-08-21</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="zsh常用快捷键">zsh常用快捷键</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>⌘ + num</td>
-<td>各tab 标签切换</td>
-</tr>
-<tr>
-<td>⌘ + F</td>
-<td>查找 ，所查找的内容会被自动复制 ,输入查找的部分字符，找到匹配的值按tab，即可复制</td>
-</tr>
-<tr>
-<td>⌘ + d</td>
-<td>横分屏</td>
-</tr>
-<tr>
-<td>⌘ + ⇧ + d</td>
-<td>竖分屏</td>
-</tr>
-<tr>
-<td>⌘ + R</td>
-<td>清屏</td>
-</tr>
-<tr>
-<td>⌃ + u</td>
-<td>清空当前行</td>
-</tr>
-<tr>
-<td>输入命领 + ⌘ + ;</td>
-<td>自动补全，提示历史执行信息</td>
-</tr>
-<tr>
-<td>⌘ + ⇧ + h</td>
-<td>展示剪切板</td>
-</tr>
-<tr>
-<td>⌘ + ⏎</td>
-<td>全屏</td>
-</tr>
-</tbody>
-</table>
-<h3 id="tmux">tmux</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/A2/">A2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
 	</div>
 
       
