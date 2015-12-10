@@ -232,8 +232,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基于OSGI的终端采集架构">基于OSGI的终端采集架构</h1><p><img src="http://www.yunzhihui.com/img/logo.png" alt="icon"><br>在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 </p>
-<h3 id="公司及产品简介">公司及产品简介</h3><p><a href="http://www.yunzhihui.com" target="_blank" rel="external">云智慧（北京）科技有限公司</a>成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）解决方案。</p>
+        <h1 id="u57FA_u4E8EOSGI_u7684_u7EC8_u7AEF_u91C7_u96C6_u67B6_u6784"><a href="#u57FA_u4E8EOSGI_u7684_u7EC8_u7AEF_u91C7_u96C6_u67B6_u6784" class="headerlink" title="基于OSGI的终端采集架构"></a>基于OSGI的终端采集架构</h1><p><img src="http://www.yunzhihui.com/img/logo.png" alt="icon"><br>在分享知识之前，先来简单来介绍一下公司的相关产品信息，以便于在知识分享的过程中，让大家更容易结合业务场景来了解其运作情况。 </p>
+<h3 id="u516C_u53F8_u53CA_u4EA7_u54C1_u7B80_u4ECB"><a href="#u516C_u53F8_u53CA_u4EA7_u54C1_u7B80_u4ECB" class="headerlink" title="公司及产品简介"></a>公司及产品简介</h3><p><a href="http://www.yunzhihui.com" target="_blank" rel="external">云智慧（北京）科技有限公司</a>成立于2009年，是国内领先的应用性能管理服务商。基于大数据分析，为企业级用户提供全面、专业的端到端的应用性能管理（End To End Application Performance Management）解决方案。</p>
 <p>现有两套独居规模的产品线:<br><a id="more"></a></p>
 <ol>
 <li><strong>监控宝</strong><br>端到端的立体监控体系，保障IT基础设施及交付能力最佳  </li>
@@ -247,20 +247,20 @@
 <li><strong><em>OSGI在实际业务场景中的应用</em></strong>  </li>
 </ol>
 <hr>
-<h4 id="1)_OSGI初识">1) OSGI初识</h4><h5 id="什么是OSGI">什么是OSGI</h5><p><a href="http://zh.wikipedia.org/wiki/OSGi" target="_blank" rel="external">OSGI</a>(Open Service Gateway Initiative)是OSGiAlliance组织制定的一个基于Java语言的服务（业务）规范，强调面向模块及服务的方式开发组件，通过组件的高可利用快速构建应用.      </p>
-<h5 id="特性">特性</h5><ul>
+<h4 id="1_29_OSGI_u521D_u8BC6"><a href="#1_29_OSGI_u521D_u8BC6" class="headerlink" title="1) OSGI初识"></a>1) OSGI初识</h4><h5 id="u4EC0_u4E48_u662FOSGI"><a href="#u4EC0_u4E48_u662FOSGI" class="headerlink" title="什么是OSGI"></a>什么是OSGI</h5><p><a href="http://zh.wikipedia.org/wiki/OSGi" target="_blank" rel="external">OSGI</a>(Open Service Gateway Initiative)是OSGiAlliance组织制定的一个基于Java语言的服务（业务）规范，强调面向模块及服务的方式开发组件，通过组件的高可利用快速构建应用.      </p>
+<h5 id="u7279_u6027"><a href="#u7279_u6027" class="headerlink" title="特性"></a>特性</h5><ul>
 <li>组件化设计</li>
 <li>面向服务</li>
 <li>严格的包引用规范机制</li>
 <li>统一生命周期管理</li>
 </ul>
-<h5 id="核心内容">核心内容</h5><ol>
+<h5 id="u6838_u5FC3_u5185_u5BB9"><a href="#u6838_u5FC3_u5185_u5BB9" class="headerlink" title="核心内容"></a>核心内容</h5><ol>
 <li><strong><em>OSGI容器</em></strong><br><img src="http://images.51cto.com/files/uploadimg/20100324/085509587.jpg" alt="icon"><br>上图展示了整个osgi的整个服务框架.  注：图片来源<a href="51cto.com">^1</a>  </li>
 </ol>
 <p>目前基于OSGI规范的实现如下:</p>
-<pre><code>-<span class="ruby"> equinox[^<span class="number">4</span>]
-</span>-<span class="ruby"> felix[^<span class="number">2</span>]
-</span>-<span class="ruby"> knopflerfish[^<span class="number">3</span>]</span>
+<pre><code>- equinox[^4]
+- felix[^2]
+- knopflerfish[^3]
 </code></pre><ol>
 <li><strong><em>生命周期管理</em></strong><br><img src="http://assets.osgi.com.cn/article/7289216/lifecycle2.png" alt="icon"><br>上图展示了整个bundle插件的从安装，运行，停止，卸载的整个状态转移过程.   注：图片来源<a href="http://assets.osgi.com.cn" target="_blank" rel="external">^5</a></li>
 </ol>
@@ -269,16 +269,16 @@
 <p> 一个完整的bundle主要包括以下几部分:   </p>
 <ul>
 <li><p>MANIFEST.MF(<strong><em><code>示例</code></em></strong>)      </p>
-<pre><code>Manifest-<span class="string">Version:</span> <span class="number">1.0</span>
-Bundle-<span class="string">ManifestVersion:</span> <span class="number">2</span>
-Bundle-<span class="string">Name:</span> SampleMain
-Bundle-<span class="string">SymbolicName:</span> SampleMain
-Bundle-<span class="string">Version:</span> <span class="number">1.0</span><span class="number">.0</span>.qualifier
-Bundle-<span class="string">Activator:</span> com.sample.main.Activator
-Import-<span class="string">Package:</span>org.apache.felix.service.command;version=<span class="string">"0.12.1"</span>,
-org.osgi.framework;version=<span class="string">"1.3.0"</span>
-Bundle-<span class="string">RequiredExecutionEnvironment:</span> JavaSE-<span class="number">1.7</span>
-Export-<span class="string">Package:</span> com.sample.main.api
+<pre><code>Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SampleMain
+Bundle-SymbolicName: SampleMain
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.sample.main.Activator
+Import-Package:org.apache.felix.service.command;version=&quot;0.12.1&quot;,
+org.osgi.framework;version=&quot;1.3.0&quot;
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.sample.main.api
 </code></pre><p>  关键配置说明：</p>
 <ul>
 <li><code>Bundle-Activator</code>：用于配置自己的事件定义，用于在bundle的启动或停止方法中处理自己的业务</li>
@@ -287,35 +287,35 @@ Export-<span class="string">Package:</span> com.sample.main.api
 </ul>
 </li>
 <li><p>Activator.java(<strong><em><code>示例</code></em></strong>) </p>
-<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activator</span>  <span class="keyword">implements</span> <span class="title">BundleActivator</span></span>{
+<pre><code>public class Activator  implements BundleActivator{
 
-    <span class="comment">//可以从bundlecontext中获取其它bundle注册的服务</span>
-    <span class="keyword">private</span> <span class="keyword">static</span> BundleContext context;
+    //可以从bundlecontext中获取其它bundle注册的服务
+    private static BundleContext context;
 
-    <span class="function"><span class="keyword">static</span> BundleContext <span class="title">getContext</span><span class="params">()</span> </span>{
-        <span class="keyword">return</span> context;
+    static BundleContext getContext() {
+        return context;
     }
 
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>{
+    public void start(BundleContext bundleContext) throws Exception {
         Activator.context = bundleContext;
 
-        <span class="comment">//TODO register the service</span>
+        //TODO register the service
     }
 </code></pre></li>
 </ul>
 </li>
 </ol>
-<pre><code>        public void <span class="operator"><span class="keyword">stop</span>(BundleContext bundleContext) throws <span class="keyword">Exception</span> {
-            Activator.<span class="keyword">context</span> = <span class="literal">null</span>;</span>
+<pre><code>        public void stop(BundleContext bundleContext) throws Exception {
+            Activator.context = null;
 
             //TODO unregister the service
         }
 
     }
 系统类说明：
-- `BundleActivator`：用于捕捉bundle的<span class="operator"><span class="keyword">start</span>和<span class="keyword">stop</span>事件。 
-- <span class="string">`BundleContext`</span>：bundle在框架中的上下文，可以通过它与框架交互。</span>
-</code></pre><h5 id="开源应用">开源应用</h5><ul>
+- `BundleActivator`：用于捕捉bundle的start和stop事件。 
+- `BundleContext`：bundle在框架中的上下文，可以通过它与框架交互。
+</code></pre><h5 id="u5F00_u6E90_u5E94_u7528"><a href="#u5F00_u6E90_u5E94_u7528" class="headerlink" title="开源应用"></a>开源应用</h5><ul>
 <li><a href="https://eclipse.org/" target="_blank" rel="external">Eclipse</a></li>
 <li><a href="http://www-01.ibm.com/software/cn/websphere/" target="_blank" rel="external">IBM websphere</a></li>
 <li>Apache <ul>
@@ -326,7 +326,7 @@ Export-<span class="string">Package:</span> com.sample.main.api
 </ul>
 </li>
 </ul>
-<h4 id="2)_OSGI在实际业务场景中的应用">2) OSGI在实际业务场景中的应用</h4><p>就采集终端的业务特性，在公司在的整个业务体系占据着重要地位，可以说是数据奠基者，后端分析之根本，所以在考虑它的设计要求时，主要关注以下几个方面:  </p>
+<h4 id="2_29_OSGI_u5728_u5B9E_u9645_u4E1A_u52A1_u573A_u666F_u4E2D_u7684_u5E94_u7528"><a href="#2_29_OSGI_u5728_u5B9E_u9645_u4E1A_u52A1_u573A_u666F_u4E2D_u7684_u5E94_u7528" class="headerlink" title="2) OSGI在实际业务场景中的应用"></a>2) OSGI在实际业务场景中的应用</h4><p>就采集终端的业务特性，在公司在的整个业务体系占据着重要地位，可以说是数据奠基者，后端分析之根本，所以在考虑它的设计要求时，主要关注以下几个方面:  </p>
 <ol>
 <li>稳定性 确保使用新的采集插件或补丁时不会影响系统的运行</li>
 <li>扩展性 采集服务是在不断完善与扩张的，因此需要灵活扩展插件</li>
@@ -344,65 +344,65 @@ Export-<span class="string">Package:</span> com.sample.main.api
 <p>具体代码示例如下：</p>
 <ol>
 <li><p>定义接口插件，如discoverapi.jar</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IDiscover</span> {
+<pre><code>public interface IDiscover {
 
-    <span class="comment">/**
+    /**
      * discover the service
-     * @return ServiceInfo the service's infomation
-     */</span>
-    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span>(<span class="params"></span>)</span>;
+     * @return ServiceInfo the service&apos;s infomation
+     */
+    public ServiceInfo doDiscover();
 
 }
 </code></pre></li>
 <li><p>定义实现插件,如: 主机发现 hostdiscover.jar</p>
-<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HostDiscover</span> <span class="keyword">implements</span> <span class="title">IDiscover</span> </span>{
+<pre><code>public class HostDiscover implements IDiscover {
 
-    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span><span class="params">()</span></span>{
-        <span class="comment">//TODO do some stuff</span>
-        <span class="keyword">return</span> xxxx;
+    public ServiceInfo doDiscover(){
+        //TODO do some stuff
+        return xxxx;
     }
 
 }
 </code></pre></li>
 <li><p>定义实现插件,如: mysql服务发现 mysqldiscover.jar</p>
-<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MysqlDiscover</span> <span class="keyword">implements</span> <span class="title">IDiscover</span> </span>{
+<pre><code>public class MysqlDiscover implements IDiscover {
 
-    <span class="function"><span class="keyword">public</span> ServiceInfo <span class="title">doDiscover</span><span class="params">()</span></span>{
-        <span class="comment">//TODO do some stuff</span>
-        <span class="keyword">return</span> xxxx;
+    public ServiceInfo doDiscover(){
+        //TODO do some stuff
+        return xxxx;
     }
 
 }
 </code></pre></li>
 <li>定义调用插件,如：servicemain.jar</li>
 </ol>
-<pre><code><span class="keyword">public</span> class ServiceComponent {
+<pre><code>public class ServiceComponent {
 
-    <span class="keyword">public</span> <span class="keyword">void</span> doDiscover() <span class="keyword">throws</span> InvalidSyntaxException{
+    public void doDiscover() throws InvalidSyntaxException{
         List&lt;IDiscover&gt; serviceList = getBundles(Activator.getContext(), IDiscover.class);
 
-        <span class="keyword">for</span>(IDiscover ids : serviceList){
-            System.out.<span class="built_in">println</span>(<span class="string">"find service:"</span>);
-            System.out.<span class="built_in">println</span>(<span class="string">"    the plugin [id: "</span>+ids.id()+<span class="string">"+, name:"</span>+ids.name()+<span class="string">" ], discover the detail:"</span>+ids.doDiscover()+<span class="string">"\n"</span>);
+        for(IDiscover ids : serviceList){
+            System.out.println(&quot;find service:&quot;);
+            System.out.println(&quot;    the plugin [id: &quot;+ids.id()+&quot;+, name:&quot;+ids.name()+&quot; ], discover the detail:&quot;+ids.doDiscover()+&quot;\n&quot;);
         }
     }
 
 
-    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; List&lt;T&gt; getBundles(BundleContext bundleContext,Class&lt;T&gt; clazz) <span class="keyword">throws</span> InvalidSyntaxException {
-        Collection&lt;ServiceReference&lt;T&gt;&gt; srfList = <span class="keyword">null</span>;
+    public static &lt;T&gt; List&lt;T&gt; getBundles(BundleContext bundleContext,Class&lt;T&gt; clazz) throws InvalidSyntaxException {
+        Collection&lt;ServiceReference&lt;T&gt;&gt; srfList = null;
 
-        <span class="keyword">String</span> <span class="built_in">filter</span> = <span class="string">"(group="</span> + clazz.getName() + <span class="string">")"</span>;
-        <span class="keyword">try</span> {
-             srfList = bundleContext.getServiceReferences(clazz, <span class="built_in">filter</span>);
-        } <span class="keyword">catch</span> (InvalidSyntaxException e) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> InvalidSyntaxException(<span class="string">"the filter syntax invalid error."</span>,<span class="built_in">filter</span>,e);
+        String filter = &quot;(group=&quot; + clazz.getName() + &quot;)&quot;;
+        try {
+             srfList = bundleContext.getServiceReferences(clazz, filter);
+        } catch (InvalidSyntaxException e) {
+            throw new InvalidSyntaxException(&quot;the filter syntax invalid error.&quot;,filter,e);
         }
 
-        List&lt;T&gt; bundleList = (List&lt;T&gt;)<span class="keyword">new</span> ArrayList(srfList.<span class="built_in">size</span>());
-        <span class="keyword">for</span> (ServiceReference&lt;T&gt; srf : srfList) {
-            bundleList.<span class="built_in">add</span>(bundleContext.getService(srf));
+        List&lt;T&gt; bundleList = (List&lt;T&gt;)new ArrayList(srfList.size());
+        for (ServiceReference&lt;T&gt; srf : srfList) {
+            bundleList.add(bundleContext.getService(srf));
         }
-        <span class="keyword">return</span> bundleList;
+        return bundleList;
     }
 }
 </code></pre><hr>

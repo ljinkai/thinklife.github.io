@@ -262,13 +262,13 @@ web访问
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="工程发布">工程发布</h3><p>在确认上续代码都已完成后，只需发布各工程jar到运行容器中，即可完成采集器的整体构建。</p>
+        <h3 id="u5DE5_u7A0B_u53D1_u5E03"><a href="#u5DE5_u7A0B_u53D1_u5E03" class="headerlink" title="工程发布"></a>工程发布</h3><p>在确认上续代码都已完成后，只需发布各工程jar到运行容器中，即可完成采集器的整体构建。</p>
 <ul>
 <li><p>构建整个工程</p>
 <p> gradle build</p>
 </li>
 <li><p>复制所有工程jar</p>
-<pre><code>cp agent-\*<span class="regexp">/build/libs</span><span class="regexp">/\*.jar framework/build</span><span class="regexp">/SmartAgent/plugins</span>
+<pre><code>cp agent-\*/build/libs/\*.jar framework/build/SmartAgent/plugins
 </code></pre></li>
 <li><p>运行容器</p>
 <p>   java -jar bin/framework-1.0.jar </p>

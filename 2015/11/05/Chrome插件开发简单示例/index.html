@@ -8,10 +8,9 @@
   <meta name="description" content="教你如何快速创建一个Chrome Extension1、创建一个文件夹用于存放插件信息&amp;gt;&amp;gt;&amp;gt; mkdir demo
 &amp;gt;&amp;gt;&amp;gt; cd demo
 2、创建manifest.json文件{
-  &quot;manifest_version&quot;: 2,
+  &amp;quot;manifest_version&amp;quot;: 2,
 
-  &quot;name&quot;: &quot;Getting started example&quot;,
-  &quot;description&quot;: &quot;This exten">
+  &amp;quot;name&amp;quot;: &amp;quot;Getting started example&amp;quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chrome插件开发简单示例">
 <meta property="og:url" content="http://www.hackhocok.xyz/2015/11/05/Chrome插件开发简单示例/index.html">
@@ -19,10 +18,9 @@
 <meta property="og:description" content="教你如何快速创建一个Chrome Extension1、创建一个文件夹用于存放插件信息&amp;gt;&amp;gt;&amp;gt; mkdir demo
 &amp;gt;&amp;gt;&amp;gt; cd demo
 2、创建manifest.json文件{
-  &quot;manifest_version&quot;: 2,
+  &amp;quot;manifest_version&amp;quot;: 2,
 
-  &quot;name&quot;: &quot;Getting started example&quot;,
-  &quot;description&quot;: &quot;This exten">
+  &amp;quot;name&amp;quot;: &amp;quot;Getting started example&amp;quot;">
 <meta property="og:image" content="https://developer.chrome.com/extensions/examples/tutorials/getstarted/icon.png">
 <meta property="og:updated_time" content="2015-11-05T15:56:24.000Z">
 <meta name="twitter:card" content="summary">
@@ -30,10 +28,9 @@
 <meta name="twitter:description" content="教你如何快速创建一个Chrome Extension1、创建一个文件夹用于存放插件信息&amp;gt;&amp;gt;&amp;gt; mkdir demo
 &amp;gt;&amp;gt;&amp;gt; cd demo
 2、创建manifest.json文件{
-  &quot;manifest_version&quot;: 2,
+  &amp;quot;manifest_version&amp;quot;: 2,
 
-  &quot;name&quot;: &quot;Getting started example&quot;,
-  &quot;description&quot;: &quot;This exten">
+  &amp;quot;name&amp;quot;: &amp;quot;Getting started example&amp;quot;">
   
     <link rel="alternative" href="/atom.xml" title="Reboot,2015" type="application/atom+xml">
   
@@ -249,67 +246,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="教你如何快速创建一个Chrome_Extension">教你如何快速创建一个Chrome Extension</h2><h2 id="1、创建一个文件夹用于存放插件信息">1、创建一个文件夹用于存放插件信息</h2><pre><code><span class="prompt">&gt;&gt;</span>&gt; mkdir demo
-<span class="prompt">&gt;&gt;</span>&gt; cd demo
-</code></pre><h2 id="2、创建manifest-json文件">2、创建manifest.json文件</h2><pre><code>{
-  "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span>,
+        <h2 id="u6559_u4F60_u5982_u4F55_u5FEB_u901F_u521B_u5EFA_u4E00_u4E2AChrome_Extension"><a href="#u6559_u4F60_u5982_u4F55_u5FEB_u901F_u521B_u5EFA_u4E00_u4E2AChrome_Extension" class="headerlink" title="教你如何快速创建一个Chrome Extension"></a>教你如何快速创建一个Chrome Extension</h2><h2 id="1_u3001_u521B_u5EFA_u4E00_u4E2A_u6587_u4EF6_u5939_u7528_u4E8E_u5B58_u653E_u63D2_u4EF6_u4FE1_u606F"><a href="#1_u3001_u521B_u5EFA_u4E00_u4E2A_u6587_u4EF6_u5939_u7528_u4E8E_u5B58_u653E_u63D2_u4EF6_u4FE1_u606F" class="headerlink" title="1、创建一个文件夹用于存放插件信息"></a>1、创建一个文件夹用于存放插件信息</h2><pre><code>&gt;&gt;&gt; mkdir demo
+&gt;&gt;&gt; cd demo
+</code></pre><h2 id="2_u3001_u521B_u5EFAmanifest-json_u6587_u4EF6"><a href="#2_u3001_u521B_u5EFAmanifest-json_u6587_u4EF6" class="headerlink" title="2、创建manifest.json文件"></a>2、创建manifest.json文件</h2><pre><code>{
+  &quot;manifest_version&quot;: 2,
 
-  "<span class="attribute">name</span>": <span class="value"><span class="string">"Getting started example"</span></span>,
-  "<span class="attribute">description</span>": <span class="value"><span class="string">"This extension shows a Google Image search result for the current page"</span></span>,
-  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,
+  &quot;name&quot;: &quot;Getting started example&quot;,
+  &quot;description&quot;: &quot;This extension shows a Google Image search result for the current page&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
 
-  "<span class="attribute">browser_action</span>": <span class="value">{
-    "<span class="attribute">default_icon</span>": <span class="value"><span class="string">"icon.png"</span></span>,
-    "<span class="attribute">default_popup</span>": <span class="value"><span class="string">"popup.html"</span>
-  </span>}</span>,
-  "<span class="attribute">permissions</span>": <span class="value">[
-    <span class="string">"activeTab"</span>,
-    <span class="string">"https://ajax.googleapis.com/"</span>
+  &quot;browser_action&quot;: {
+    &quot;default_icon&quot;: &quot;icon.png&quot;,
+    &quot;default_popup&quot;: &quot;popup.html&quot;
+  },
+  &quot;permissions&quot;: [
+    &quot;activeTab&quot;,
+    &quot;https://ajax.googleapis.com/&quot;
   ]
-</span>}
+}
 </code></pre><p><a href="https://developer.chrome.com/extensions/examples/tutorials/getstarted/manifest.json" target="_blank" rel="external">下载</a></p>
-<h2 id="3、创建资源文件">3、创建资源文件</h2><h3 id="3-1、创建插件图标（icon-png）">3.1、创建插件图标（<code>icon.png</code>）</h3><p>使用此图<img src="https://developer.chrome.com/extensions/examples/tutorials/getstarted/icon.png" alt="default_icon">作为插件图标  </p>
+<h2 id="3_u3001_u521B_u5EFA_u8D44_u6E90_u6587_u4EF6"><a href="#3_u3001_u521B_u5EFA_u8D44_u6E90_u6587_u4EF6" class="headerlink" title="3、创建资源文件"></a>3、创建资源文件</h2><h3 id="3-1_u3001_u521B_u5EFA_u63D2_u4EF6_u56FE_u6807_uFF08icon-png_uFF09"><a href="#3-1_u3001_u521B_u5EFA_u63D2_u4EF6_u56FE_u6807_uFF08icon-png_uFF09" class="headerlink" title="3.1、创建插件图标（<code>icon.png</code>）"></a>3.1、创建插件图标（<code>icon.png</code>）</h3><p>使用此图<img src="https://developer.chrome.com/extensions/examples/tutorials/getstarted/icon.png" alt="default_icon">作为插件图标  </p>
 <p><a href="https://developer.chrome.com/extensions/examples/tutorials/getstarted/icon.png" target="_blank" rel="external">下载</a></p>
-<h3 id="3-2、创建popup页面">3.2、创建popup页面</h3><pre><code><span class="comment">&lt;!-- Filename: popup.html --&gt;</span>
-<span class="doctype">&lt;!doctype html&gt;</span>
-<span class="comment">&lt;!--
+<h3 id="3-2_u3001_u521B_u5EFApopup_u9875_u9762"><a href="#3-2_u3001_u521B_u5EFApopup_u9875_u9762" class="headerlink" title="3.2、创建popup页面"></a>3.2、创建popup页面</h3><pre><code>&lt;!-- Filename: popup.html --&gt;
+&lt;!doctype html&gt;
+&lt;!--
  This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- --&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Getting Started Extension's Popup<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-      <span class="tag">body</span> <span class="rules">{
-        <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">"Segoe UI"</span>, <span class="string">"Lucida Grande"</span>, Tahoma, sans-serif</span></span>;
-        <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">100%</span></span></span>;
-      }</span>
-      <span class="id">#status</span> <span class="rules">{
-        <span class="comment">/* avoid an excessively wide status text */</span>
-        <span class="rule"><span class="attribute">white-space</span>:<span class="value"> pre</span></span>;
-        <span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> ellipsis</span></span>;
-        <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-        <span class="rule"><span class="attribute">max-width</span>:<span class="value"> <span class="number">400px</span></span></span>;
-      }</span>
-    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+ &quot;browser_action&quot; field in manifest.json contains the &quot;default_popup&quot; key with
+ value &quot;popup.html&quot;.
+ --&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Getting Started Extension&apos;s Popup&lt;/title&gt;
+    &lt;style&gt;
+      body {
+        font-family: &quot;Segoe UI&quot;, &quot;Lucida Grande&quot;, Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+    &lt;/style&gt;
 
-    <span class="comment">&lt;!--
+    &lt;!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     --&gt;</span>
-    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"popup.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"status"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">id</span>=<span class="value">"image-result"</span> <span class="attribute">hidden</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+     --&gt;
+    &lt;script src=&quot;popup.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;status&quot;&gt;&lt;/div&gt;
+    &lt;img id=&quot;image-result&quot; hidden&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre><p><a href="https://developer.chrome.com/extensions/examples/tutorials/getstarted/popup.html" target="_blank" rel="external">下载popup.html</a>  </p>
 <p><a href="https://developer.chrome.com/extensions/examples/tutorials/getstarted/popup.js" target="_blank" rel="external">下载popup.js</a></p>
-<h2 id="4、安装插件">4、安装插件</h2><h3 id="4-1_打开chrome浏览器，访问chrome://extensions">4.1 打开chrome浏览器，访问<code>chrome://extensions</code></h3><h3 id="4-2_勾选Developer_mode">4.2 勾选<code>Developer mode</code></h3><h3 id="4-3_选择Load_unpacked_extension-,_从弹出页面选择之前创建demo文件">4.3 选择<code>Load unpacked extension...</code>, 从弹出页面选择之前创建demo文件</h3><p>到此，即可在chrome插件栏看到我们开发的插件。</p>
+<h2 id="4_u3001_u5B89_u88C5_u63D2_u4EF6"><a href="#4_u3001_u5B89_u88C5_u63D2_u4EF6" class="headerlink" title="4、安装插件"></a>4、安装插件</h2><h3 id="4-1__u6253_u5F00chrome_u6D4F_u89C8_u5668_uFF0C_u8BBF_u95EEchrome_3A//extensions"><a href="#4-1__u6253_u5F00chrome_u6D4F_u89C8_u5668_uFF0C_u8BBF_u95EEchrome_3A//extensions" class="headerlink" title="4.1 打开chrome浏览器，访问<code>chrome://extensions</code>"></a>4.1 打开chrome浏览器，访问<code>chrome://extensions</code></h3><h3 id="4-2__u52FE_u9009Developer_mode"><a href="#4-2__u52FE_u9009Developer_mode" class="headerlink" title="4.2 勾选<code>Developer mode</code>"></a>4.2 勾选<code>Developer mode</code></h3><h3 id="4-3__u9009_u62E9Load_unpacked_extension-_2C__u4ECE_u5F39_u51FA_u9875_u9762_u9009_u62E9_u4E4B_u524D_u521B_u5EFAdemo_u6587_u4EF6"><a href="#4-3__u9009_u62E9Load_unpacked_extension-_2C__u4ECE_u5F39_u51FA_u9875_u9762_u9009_u62E9_u4E4B_u524D_u521B_u5EFAdemo_u6587_u4EF6" class="headerlink" title="4.3 选择<code>Load unpacked extension...</code>, 从弹出页面选择之前创建demo文件"></a>4.3 选择<code>Load unpacked extension...</code>, 从弹出页面选择之前创建demo文件</h3><p>到此，即可在chrome插件栏看到我们开发的插件。</p>
 
       
     </div>

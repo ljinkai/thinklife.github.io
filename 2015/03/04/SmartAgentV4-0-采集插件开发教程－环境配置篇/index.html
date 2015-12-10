@@ -257,84 +257,84 @@ Eclipse安装注：如果本地已安装eclipse,则检查其是否有plugin-in�
     <div class="article-entry" itemprop="articleBody">
       
         <p>本章节主要介绍开发过程中应用到的软件以及如何进行安装配置.</p>
-<h3 id="软件环境配置">软件环境配置</h3><ul>
+<h3 id="u8F6F_u4EF6_u73AF_u5883_u914D_u7F6E"><a href="#u8F6F_u4EF6_u73AF_u5883_u914D_u7F6E" class="headerlink" title="软件环境配置"></a>软件环境配置</h3><ul>
 <li>Eclipse    <code>开发软件</code></li>
 <li>Apache Maven    <code>项目构建工具</code>，在此处主要是给gradle提供本地maven存储库，便于项目的快速构建</li>
 <li>Gradle  <code>项目构建工具</code></li>
 <li>Github  <code>项目版本控制</code></li>
 </ul>
 <hr>
-<h4 id="Eclipse安装">Eclipse安装</h4><p><code>注：如果本地已安装eclipse,则检查其是否有plugin-in插件，有则可跳过此安装</code></p>
+<h4 id="Eclipse_u5B89_u88C5"><a href="#Eclipse_u5B89_u88C5" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h4><p><code>注：如果本地已安装eclipse,则检查其是否有plugin-in插件，有则可跳过此安装</code></p>
 <ul>
 <li><p><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz" target="_blank" rel="external">下载</a></p>
-<pre><code>wget <span class="symbol">http:</span>/<span class="regexp">/www.eclipse.org/downloads</span><span class="regexp">/download.php?file=/technology</span><span class="regexp">/epp/downloads</span><span class="regexp">/release/indigo</span><span class="regexp">/SR2/eclipse</span>-jee-indigo-<span class="constant">SR2-</span>linux-gtk-x86_64.tar.gz
+<pre><code>wget http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/SR2/eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz
 </code></pre></li>
 <li><p>安装  </p>
-<pre><code>tar -zxvf eclipse-jee-indigo-SR2-linux-gtk-x86_64<span class="class">.tar</span><span class="class">.gz</span>
+<pre><code>tar -zxvf eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz
 </code></pre></li>
 <li><p>验证<br>解压完成后，进入eclipse目录，运行eclipse出现欢迎界面，则表明安装完成。</p>
 </li>
 </ul>
-<h4 id="Apache_Maven安装">Apache Maven安装</h4><ul>
+<h4 id="Apache_Maven_u5B89_u88C5"><a href="#Apache_Maven_u5B89_u88C5" class="headerlink" title="Apache Maven安装"></a>Apache Maven安装</h4><ul>
 <li><p><a href="http://mirrors.cnnic.cn/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz" target="_blank" rel="external">下载</a></p>
-<pre><code>wget <span class="symbol">http:</span>/<span class="regexp">/mirrors.cnnic.cn/apache</span><span class="regexp">/maven/maven</span>-<span class="number">3</span>/<span class="number">3.0</span>.<span class="number">5</span>/binaries/apache-maven-<span class="number">3.0</span>.<span class="number">5</span>-bin.tar.gz
+<pre><code>wget http://mirrors.cnnic.cn/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
 </code></pre></li>
 <li><p>安装并配置环境变量  </p>
-<pre><code><span class="tag">-</span> 解压
+<pre><code>- 解压
 
- <span class="tag">tar</span> <span class="tag">-zxvf</span> <span class="tag">apache-maven-3</span><span class="class">.0</span><span class="class">.5-bin</span><span class="class">.tar</span><span class="class">.gz</span>
+ tar -zxvf apache-maven-3.0.5-bin.tar.gz
 </code></pre><ul>
 <li><p>添加环境变量<br>  1) 编辑配置文件</p>
-<pre><code><span class="title">vim</span> ~/.bash_profile
+<pre><code>vim ~/.bash_profile
 </code></pre><p> 2) 在文件中添加如下内容：</p>
-<pre><code>export MAVEN_HOME=/usr/local/apache-maven-<span class="number">3.0</span>.<span class="number">5</span>
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$MAVEN</span>_HOME/bin
+<pre><code>export MAVEN_HOME=/usr/local/apache-maven-3.0.5
+export PATH=$PATH:$MAVEN_HOME/bin
 </code></pre><p> 3) 打开命令窗口，执行如下命令，使环境变量生效。</p>
-<pre><code><span class="built_in">source</span> ~/.bash_profile
+<pre><code>source ~/.bash_profile
 </code></pre></li>
 </ul>
 </li>
 <li><p>验证<br>  打开命令窗口，执行</p>
-<pre><code>mvn -<span class="property">version</span>
+<pre><code>mvn -version
 </code></pre><p>  如能正常显示版本信息,表明安装成功.</p>
 </li>
 </ul>
-<h4 id="Gradle安装">Gradle安装</h4><ul>
+<h4 id="Gradle_u5B89_u88C5"><a href="#Gradle_u5B89_u88C5" class="headerlink" title="Gradle安装"></a>Gradle安装</h4><ul>
 <li><p><a href="https://services.gradle.org/distributions/gradle-2.2-bin.zip" target="_blank" rel="external">下载</a></p>
-<pre><code>wget <span class="string">https:</span><span class="comment">//services.gradle.org/distributions/gradle-2.2-bin.zip</span>
+<pre><code>wget https://services.gradle.org/distributions/gradle-2.2-bin.zip
 </code></pre></li>
 <li><p>安装并配置环境变量 </p>
 <ul>
 <li><p>解压    </p>
-<pre><code><span class="tag">unzip</span> <span class="tag">gradle-2</span><span class="class">.2-bin</span><span class="class">.zip</span>
+<pre><code>unzip gradle-2.2-bin.zip
 </code></pre></li>
 <li><p>添加环境变量</p>
 <p>  1) 编辑配置文件</p>
-<pre><code><span class="title">vim</span> ~/.bash_profile
+<pre><code>vim ~/.bash_profile
 </code></pre><p>  2) 在文件中添加如下内容</p>
-<pre><code>export GRADLE_HOME=/usr/local/gradle-<span class="number">2.2</span>
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$GRADLE</span>_HOME/bin
+<pre><code>export GRADLE_HOME=/usr/local/gradle-2.2
+export PATH=$PATH:$GRADLE_HOME/bin
 </code></pre><p>  3) 命令窗口中运行如下命令，使其生效</p>
-<pre><code><span class="built_in">source</span> ~/.bash_profile
+<pre><code>source ~/.bash_profile
 </code></pre></li>
 </ul>
 </li>
 <li><p>验证  </p>
 <p>  打开命令窗口，执行命令：</p>
-<pre><code>gradle -<span class="property">version</span>
+<pre><code>gradle -version
 </code></pre><p>  如能正常显示版本信息，则表明安装配置成功。</p>
 </li>
 </ul>
-<h4 id="Github安装">Github安装</h4><ul>
+<h4 id="Github_u5B89_u88C5"><a href="#Github_u5B89_u88C5" class="headerlink" title="Github安装"></a>Github安装</h4><ul>
 <li><p>下载</p>
-<pre><code>apt-<span class="keyword">get</span> install git
+<pre><code>apt-get install git
 </code></pre></li>
 <li><p>配置Git缺省配置</p>
-<pre><code>git config --global user<span class="class">.name</span> <span class="string">"YOUR NAME"</span>
-git config --global user<span class="class">.email</span> <span class="string">"YOUR EMAIL ADDRESS"</span>
+<pre><code>git config --global user.name &quot;YOUR NAME&quot;
+git config --global user.email &quot;YOUR EMAIL ADDRESS&quot;
 </code></pre></li>
 <li><p>验证<br>  打开命令窗口，执行命令：</p>
-<pre><code>git -<span class="property">version</span>
+<pre><code>git -version
 </code></pre><p>  如能正常显示版本信息，则表明安装配置成功。</p>
 </li>
 </ul>

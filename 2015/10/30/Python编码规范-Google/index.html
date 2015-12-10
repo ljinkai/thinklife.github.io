@@ -296,42 +296,42 @@
 <li><a href="#访问控制">访问控制</a>  </li>
 </ul>
 <hr>
-<h3 id="分号">分号</h3><ol>
+<h3 id="u5206_u53F7"><a href="#u5206_u53F7" class="headerlink" title="分号"></a>分号</h3><ol>
 <li>不要在行尾加分号</li>
 <li>不要用分号将两条命令放在同一行</li>
 </ol>
-<h3 id="行长度">行长度</h3><ol>
+<h3 id="u884C_u957F_u5EA6"><a href="#u884C_u957F_u5EA6" class="headerlink" title="行长度"></a>行长度</h3><ol>
 <li>每行不超过80个字符(<code>长的导入模块语句</code>/<code>注释里的URL</code>)<br>. 了2. 不要使用反斜杠连接行  </li>
 </ol>
 <p><strong>正确使用:</strong></p>
-<pre><code><span class="comment">/*Python会将**圆括号, 中括号和花括号**中的行隐式的连接, 所以可以在表达式外添加一对括号*/</span>
+<pre><code>/*Python会将**圆括号, 中括号和花括号**中的行隐式的连接, 所以可以在表达式外添加一对括号*/
 
-<span class="comment">/*1. 函数*/</span>
-foo_bar(self, <span class="variable">width</span>, <span class="variable">height</span>, <span class="built_in">color</span>=<span class="string">'black'</span>, design=None, x=<span class="string">'foo'</span>, 
-        emphasis=None, highlight=<span class="number">0</span>)
-<span class="keyword">if</span> (<span class="variable">width</span> == <span class="number">0</span> and <span class="variable">height</span> == <span class="number">0</span> and
-    <span class="built_in">color</span> == <span class="string">'red'</span> and emphasis == <span class="string">'strong'</span>):
+/*1. 函数*/
+foo_bar(self, width, height, color=&apos;black&apos;, design=None, x=&apos;foo&apos;, 
+        emphasis=None, highlight=0)
+if (width == 0 and height == 0 and
+    color == &apos;red&apos; and emphasis == &apos;strong&apos;):
 
-<span class="comment">/*2. 字符串*/</span>
-x = (<span class="string">'这是一个非常长非常长非常长非常长 '</span>
- <span class="string">'非常长非常长非常长非常长非常长非常长的字符串'</span>)
-</code></pre><h3 id="括号">括号</h3><ul>
+/*2. 字符串*/
+x = (&apos;这是一个非常长非常长非常长非常长 &apos;
+ &apos;非常长非常长非常长非常长非常长非常长的字符串&apos;)
+</code></pre><h3 id="u62EC_u53F7"><a href="#u62EC_u53F7" class="headerlink" title="括号"></a>括号</h3><ul>
 <li>用于行连接</li>
 <li>元组</li>
 </ul>
 <p><strong>正确使用:</strong></p>
-<pre><code><span class="keyword">if</span> foo:
-     <span class="function"><span class="title">bar</span><span class="params">()</span></span>
+<pre><code>if foo:
+     bar()
 while x:
-     x = <span class="function"><span class="title">bar</span><span class="params">()</span></span>
-<span class="keyword">if</span> x and y:
-     <span class="function"><span class="title">bar</span><span class="params">()</span></span>
-<span class="keyword">if</span> not x:
-     <span class="function"><span class="title">bar</span><span class="params">()</span></span>
+     x = bar()
+if x and y:
+     bar()
+if not x:
+     bar()
 return foo
 
-<span class="keyword">for</span> (x, y) <span class="keyword">in</span> dict.<span class="function"><span class="title">items</span><span class="params">()</span></span>: ...
-</code></pre><h3 id="缩进">缩进</h3><hr>
+for (x, y) in dict.items(): ...
+</code></pre><h3 id="u7F29_u8FDB"><a href="#u7F29_u8FDB" class="headerlink" title="缩进"></a>缩进</h3><hr>
 <ul>
 <li>用4个空格来缩进代码(<code>绝对不要用tab</code>)</li>
 </ul>

@@ -250,14 +250,14 @@ Felix Framework OSGI插件运行环境
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="环境搭建">环境搭建</h3><ul>
+        <h3 id="u73AF_u5883_u642D_u5EFA"><a href="#u73AF_u5883_u642D_u5EFA" class="headerlink" title="环境搭建"></a>环境搭建</h3><ul>
 <li>eclipse  开发工具</li>
 <li>Felix Framework <code>OSGI插件运行环境</code></li>
 </ul>
 <ul>
 <li><p>下载felix    </p>
 <a id="more"></a>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="symbol">http:</span>/<span class="regexp">/mirror.olnevhost.net/pub</span><span class="regexp">/apache/</span><span class="regexp">/felix/org</span>.apache.felix.main.distribution-<span class="number">4.6</span>.<span class="number">0</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="symbol">http:</span>/<span class="regexp">/mirror.olnevhost.net/pub</span><span class="regexp">/apache/</span><span class="regexp">/felix/org</span>.apache.felix.main.distribution-<span class="number">4.6</span>.<span class="number">0</span>.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解压文件</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">tar</span> <span class="tag">-zxvf</span> <span class="tag">org</span><span class="class">.apache</span><span class="class">.felix</span><span class="class">.main</span><span class="class">.distribution-4</span><span class="class">.6</span><span class="class">.0</span><span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure>
@@ -267,18 +267,18 @@ Felix Framework OSGI插件运行环境
 </li>
 </ul>
 <p><strong>显示: “Welcome to Apache Felix Gogo” 表明安装成功.</strong><br>至此,环境搭建完毕.<br><!-- more --></p>
-<h3 id="开发步骤">开发步骤</h3><h4 id="1-_创建plugin_project">1. 创建plugin project</h4><p><img src="http://7wy48o.com1.z0.glb.clouddn.com/plugin-create.png-blogpic" alt="image"><br>创建成功后，会生成如下目录：  </p>
-<pre><code>SampleOne                    <span class="comment">//工程名</span>
+<h3 id="u5F00_u53D1_u6B65_u9AA4"><a href="#u5F00_u53D1_u6B65_u9AA4" class="headerlink" title="开发步骤"></a>开发步骤</h3><h4 id="1-__u521B_u5EFAplugin_project"><a href="#1-__u521B_u5EFAplugin_project" class="headerlink" title="1. 创建plugin project"></a>1. 创建plugin project</h4><p><img src="http://7wy48o.com1.z0.glb.clouddn.com/plugin-create.png-blogpic" alt="image"><br>创建成功后，会生成如下目录：  </p>
+<pre><code>SampleOne                    //工程名
     ├── META-INF    
-    │   └── MANIFEST<span class="class">.MF</span>    <span class="comment">//plugin配置文件，负现包目录的导入与导出，以及第三方jar的加载</span>
-    ├── bin                    <span class="comment">//编译目录</span>
+    │   └── MANIFEST.MF    //plugin配置文件，负现包目录的导入与导出，以及第三方jar的加载
+    ├── bin                    //编译目录
     │   └── sampleone
-    │       └── Activator<span class="class">.class</span>
-    ├── build<span class="class">.properties</span>
-    └── src                    <span class="comment">//源代码目录</span>
+    │       └── Activator.class
+    ├── build.properties
+    └── src                    //源代码目录
              └── sampleone
             └── Activator.java
-</code></pre><h4 id="2-_编辑源码及配置文件：">2. 编辑源码及配置文件：</h4><ul>
+</code></pre><h4 id="2-__u7F16_u8F91_u6E90_u7801_u53CA_u914D_u7F6E_u6587_u4EF6_uFF1A"><a href="#2-__u7F16_u8F91_u6E90_u7801_u53CA_u914D_u7F6E_u6587_u4EF6_uFF1A" class="headerlink" title="2. 编辑源码及配置文件："></a>2. 编辑源码及配置文件：</h4><ul>
 <li>编辑<code>Activator.java</code><br> 此文件为插件装载启动或停止时，调用对应的start及stop方法。可以start方法中执行一些服务注册或初始化工作，以及在stop方法中。    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activator</span> <span class="keyword">implements</span> <span class="title">BundleActivator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BundleContext context;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">static</span> BundleContext <span class="title">getContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> context;</span><br><span class="line">	&#125;			</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		Activator.context = bundleContext;</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">"current time:"</span>+<span class="keyword">new</span> Date());			Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">(BundleContext bundleContext)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		Activator.context = <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
