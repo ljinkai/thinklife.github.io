@@ -534,7 +534,143 @@ sudo(&quot;mkdir /var/www/web-app-one&quot;, user=&quot;web-admin&quot;)
 
 # Return the output
 result = sudo(&quot;ls -l /var/www&quot;)
-</code></pre><h3 id="local__28fabric-operations-local_29"><a href="#local__28fabric-operations-local_29" class="headerlink" title="local (fabric.operations.local)"></a>local (fabric.operations.local)</h3><h3 id="get__28fabric-operations-get_29"><a href="#get__28fabric-operations-get_29" class="headerlink" title="get (fabric.operations.get)"></a>get (fabric.operations.get)</h3><h3 id="put__28fabric-operations-put_29"><a href="#put__28fabric-operations-put_29" class="headerlink" title="put (fabric.operations.put)"></a>put (fabric.operations.put)</h3><h3 id="prompt__28fabric-operations-prompt_29"><a href="#prompt__28fabric-operations-prompt_29" class="headerlink" title="prompt (fabric.operations.prompt)"></a>prompt (fabric.operations.prompt)</h3><h3 id="reboot__28fabric-operations-reboot_29"><a href="#reboot__28fabric-operations-reboot_29" class="headerlink" title="reboot (fabric.operations.reboot)"></a>reboot (fabric.operations.reboot)</h3><h1 id="Fabric_u2019s_Helpers_3A_Context_Managers"><a href="#Fabric_u2019s_Helpers_3A_Context_Managers" class="headerlink" title="Fabric’s Helpers: Context Managers"></a>Fabric’s Helpers: Context Managers</h1><h1 id="Example_fabfile_For_Automating_Management_Tasks"><a href="#Example_fabfile_For_Automating_Management_Tasks" class="headerlink" title="Example fabfile For Automating Management Tasks"></a>Example fabfile For Automating Management Tasks</h1>
+</code></pre><h3 id="local__28fabric-operations-local_29"><a href="#local__28fabric-operations-local_29" class="headerlink" title="local (fabric.operations.local)"></a>local (fabric.operations.local)</h3><p>As we have mentioned in our introduction, a single Fabric script (fabfile) can be used to perform actions both on the local machine and remote system(s). For this purpose, Fabric provides the local operative to run commands locally.</p>
+<p>Unlike run or sudo, however, interacting with the output of local the same way is not possible. Either output can be captured or printed – the switch can be set with capture argument.</p>
+<p>Local helpers such as the lcd context manager (which is used for setting the local working directory) are honoured with local, the same way run (or sudo) honours the cd context manager.</p>
+<p>Usage examples:</p>
+<pre><code># Create a source distribution tar archive (for a Python App.)
+local(&quot;python setup.py sdist --formats=gztar&quot;, capture=False)
+
+# Extract the contents of a tar archive
+local(&quot;tar xzvf /tmp/trunk/app.tar.gz&quot;)
+
+# Remove a file
+local(&quot;rm /tmp/trunk/app.tar.gz&quot;)
+</code></pre><h3 id="get__28fabric-operations-get_29"><a href="#get__28fabric-operations-get_29" class="headerlink" title="get (fabric.operations.get)"></a>get (fabric.operations.get)</h3><p>The get command exists to download (i.e. pull) file(s) from the remote system to the computer where the Fabric is being used. It is similar to how scp works and comes in handy when you need to download backups, logging data or some other server related items.</p>
+<p>You can specify the remote path with the remote_path argument.</p>
+<p>You can specify the local - download - path with the local_path argument.</p>
+<p>Usage examples:</p>
+<pre><code># Download some logs
+get(remote_path=&quot;/tmp/log_extracts.tar.gz&quot;, local_path=&quot;/logs/new_log.tar.gz&quot;)
+
+# Download a database back-up
+get(&quot;/backup/db.gz&quot;, &quot;./db.gz&quot;)
+</code></pre><h3 id="put__28fabric-operations-put_29"><a href="#put__28fabric-operations-put_29" class="headerlink" title="put (fabric.operations.put)"></a>put (fabric.operations.put)</h3><p>When you need to upload files, put command can be used very similarly to get. You can again access the results of command’s execution with .failed or .succeeded.</p>
+<p>local_path - set the local path.</p>
+<p>remote_path - set the remote path.</p>
+<p>use_sudo - upload the file to anywhere on the remote machine using a nifty trick: upload to a temporary location then move.</p>
+<p>mode - set the file mode (flags).</p>
+<p>mirror_local - set the file flags (i.e. make executable) automatically by reading the local file’s mode.</p>
+<p>Usage examples:</p>
+<pre><code># Upload a tar archive of an application
+put(&quot;/local/path/to/app.tar.gz&quot;, &quot;/tmp/trunk/app.tar.gz&quot;)
+
+# Use the context manager `cd` instead of &quot;remote_path&quot; arg.
+# This will upload app.tar.gz to /tmp/trunk/
+with cd(&quot;/tmp&quot;):
+    put(&quot;local/path/to/app.tar.gz&quot;, &quot;trunk&quot;)
+
+# Upload a file and set the exact mode desired
+upload = put(&quot;requirements.txt&quot;, &quot;requirements.txt&quot;, mode=664)
+
+# Verify the upload
+upload.succeeded
+</code></pre><h3 id="prompt__28fabric-operations-prompt_29"><a href="#prompt__28fabric-operations-prompt_29" class="headerlink" title="prompt (fabric.operations.prompt)"></a>prompt (fabric.operations.prompt)</h3><p>When you find yourself in need of some extra flexibility working with Fabric, prompt will come to your rescue. This command does exactly what its name suggests and asks the user (i.e. one that is running the script) to input a certain data to use during the successive execution.</p>
+<p>If you are using a single file to manage with multiple applications, for example, you can use prompt to set one to perform the actions.</p>
+<p>Before starting with anything, prompt can also be used to query the port number to use.</p>
+<p>Usage examples:</p>
+<pre><code># Prompt the user
+port_number = prompt(&quot;Which port would you like to use?&quot;)
+
+# Prompt the user with defaults and validation
+port_number = prompt(&quot;Which port?&quot;, default=42, validate=int)
+</code></pre><h3 id="reboot__28fabric-operations-reboot_29"><a href="#reboot__28fabric-operations-reboot_29" class="headerlink" title="reboot (fabric.operations.reboot)"></a>reboot (fabric.operations.reboot)</h3><p>The reboot command is also self explanatory: it is used to reboot the remote system. By default, it waits two minutes (i.e. 120 seconds -&gt; wait=120) before doing its job.</p>
+<p>Usage examples:</p>
+<pre><code># Reboot the remote system
+reboot()
+
+# Reboot after 30 seconds
+reboot(wait=30)
+</code></pre><h1 id="Fabric_u2019s_Helpers_3A_Context_Managers"><a href="#Fabric_u2019s_Helpers_3A_Context_Managers" class="headerlink" title="Fabric’s Helpers: Context Managers"></a>Fabric’s Helpers: Context Managers</h1><p>Fabric’s context managers are used with the Python’s with statement. The reason for this is how sessions between execution of commands are not kept between shell-less connections.</p>
+<p><strong>Note</strong>: You can see and learn more about Fabric’s context managers by visiting its documentation on the subject.</p>
+<h3 id="cd__28fabric-context_managers-cd_29"><a href="#cd__28fabric-context_managers-cd_29" class="headerlink" title="cd (fabric.context_managers.cd)"></a>cd (fabric.context_managers.cd)</h3><p>cd context manager allows keeping the directory state (i.e. where the following block of comments are to be executed). It is similar to running the cd command during an SSH session and running various different commands.</p>
+<p>Usage examples:</p>
+<pre><code># The *cd* context manager makes enwrapped command&apos;s
+# execution relative to the stated path (i.e. &quot;/tmp/trunk&quot;)
+with cd(&quot;/tmp/trunk&quot;):
+    items = sudo(&quot;ls -l&quot;)
+
+# It is possible to &quot;chain&quot; context managers
+# The run commands gets executed, therefore at &quot;/tmp/trunk&quot;
+with cd(&quot;/tmp&quot;):
+    with cd(&quot;/trunk&quot;):
+        run(&quot;ls&quot;)
+</code></pre><h3 id="lcd__28fabric-context_managers-lcd_29"><a href="#lcd__28fabric-context_managers-lcd_29" class="headerlink" title="lcd (fabric.context_managers.lcd)"></a>lcd (fabric.context_managers.lcd)</h3><p>The lcd context manager (local cd) works very similarly to one above (cd); however, it only affects the local system’s state.</p>
+<p>Usage examples:</p>
+<pre><code># Change the local working directory to project&apos;s
+# and upload a tar archive
+with lcd(&quot;~/projects/my_project&quot;):
+    print &quot;Uploading the project archive&quot;
+    put(&quot;app.tar.gz&quot;, &quot;/tmp/trunk/app.tar.gz&quot;)
+</code></pre><h3 id="path__28fabric-context_managers-path_29"><a href="#path__28fabric-context_managers-path_29" class="headerlink" title="path (fabric.context_managers.path)"></a>path (fabric.context_managers.path)</h3><p>path context managers alters the PATH variable.</p>
+<h3 id="settings__28fabric-context_managers-settings_29"><a href="#settings__28fabric-context_managers-settings_29" class="headerlink" title="settings (fabric.context_managers.settings)"></a>settings (fabric.context_managers.settings)</h3><p>When you need to temporarily (i.e. for a certain command chain), you can use the settings statement (i.e. override env values).</p>
+<p>Usage examples:</p>
+<pre><code># Perform actions using a different *user*
+with settings(user=&quot;user1&quot;):
+    sudo(&quot;cmd&quot;)
+</code></pre><h3 id="prefix__28fabric-context_managers-prefix_29"><a href="#prefix__28fabric-context_managers-prefix_29" class="headerlink" title="prefix (fabric.context_managers.prefix)"></a>prefix (fabric.context_managers.prefix)</h3><p>prefix statement does what its name suggests and wraps given run and sudo command with the specified one.</p>
+<p>Usage examples:</p>
+<pre><code>with prefix(&quot;cmd arg.&quot;):
+    run(&quot;./start&quot;)
+# cmd arg. &amp;&amp; ./start
+</code></pre><h1 id="Example_fabfile_For_Automating_Management_Tasks"><a href="#Example_fabfile_For_Automating_Management_Tasks" class="headerlink" title="Example fabfile For Automating Management Tasks"></a>Example fabfile For Automating Management Tasks</h1><p>To begin learning how to program a fabfiles to automate a simple management task, let’s create an empty <code>fabfile.py</code>.</p>
+<p>Run the following command to create a <code>fabfile.py</code> using the text editor nano:</p>
+<pre><code>nano fabfile.py
+</code></pre><p>Append the following code block updating the system and installing memcached:</p>
+<pre><code># Fabfile to:
+#    - update the remote system(s) 
+#    - download and install an application
+
+# Import Fabric&apos;s API module
+from fabric.api import *
+
+
+env.hosts = [
+    &apos;server.domain.tld&apos;,
+  # &apos;ip.add.rr.ess
+  # &apos;server2.domain.tld&apos;,
+]
+# Set the username
+env.user   = &quot;root&quot;
+
+# Set the password [NOT RECOMMENDED]
+# env.password = &quot;passwd&quot;
+
+def update_upgrade():
+    &quot;&quot;&quot;
+        Update the default OS installation&apos;s
+        basic default tools.
+                                            &quot;&quot;&quot;
+    run(&quot;aptitude    update&quot;)
+    run(&quot;aptitude -y upgrade&quot;)
+
+def install_memcached():
+    &quot;&quot;&quot; Download and install memcached. &quot;&quot;&quot;
+    run(&quot;aptitude install -y memcached&quot;)
+
+def update_install():
+
+    # Update
+    update_upgrade()
+
+    # Install
+    install_memcached()
+</code></pre><p>Save and exit using CTRL+X and confirm with with Y.</p>
+<p>Now you can start automating your mundane server management tasks using Fabric and its features explained here.</p>
+<pre><code># Automate everything!
+fab update_install
+</code></pre><p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-fabric-to-automate-administration-tasks-and-deployments" target="_blank" rel="external">原文</a></p>
+
       
     </div>
     
